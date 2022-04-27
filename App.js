@@ -10,7 +10,8 @@ import {
   RefreshControl,
   Text,
 } from 'react-native';
-import {ListItem, Divider, Rating} from 'react-native-elements';
+import {ListItem, Divider} from 'react-native-elements';
+import {Rating, AirbnbRating} from 'react-native-ratings';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Avatar} from '@rneui/themed';
@@ -53,7 +54,6 @@ function Home({navigation}) {
 
   const hideDialog = () => setVisible(false);
 
-  
   // const renderFooter = () => {
   //   if (isLoading) return null;
   //   return <ActivityIndicator size="large" color="#0000ff" />;
@@ -162,11 +162,11 @@ function Home({navigation}) {
                     <ListItem.Subtitle>
                       <Rating
                         type="custom"
-                        imageSize={14}
                         readonly
-                        startingValue={item.rating.rate}
-                        style={{}}
                         ratingColor="green"
+                        ratingBackgroundColor="#c8c7c8"
+                        imageSize={14}
+                        startingValue={item.rating.rate}
                         tintColor="#fff"
                       />
                       <Text style={{fontSize: 10}}> ({item.rating.count})</Text>
@@ -190,8 +190,16 @@ function Home({navigation}) {
         </View>
       </CollapsibleScrollView>
       <BottomSheet hasDraggableIcon ref={bottomSheet} height={270}>
-        <View style={{marginHorizontal:20, marginTop:10}}>
-          <Text style={{fontWeight:'bold',fontSize: 22, color:'black', marginBottom:5}}>Categories</Text>
+        <View style={{marginHorizontal: 20, marginTop: 10}}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 22,
+              color: 'black',
+              marginBottom: 5,
+            }}>
+            Categories
+          </Text>
           <RadioButton.Group
             onValueChange={checked => setChecked(checked)}
             value={checked}>
@@ -220,7 +228,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Details">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Home}
