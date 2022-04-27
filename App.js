@@ -160,6 +160,7 @@ function Home({navigation}) {
                       <Text style={{}}>{item?.title}</Text>
                     </ListItem.Title>
                     <ListItem.Subtitle>
+                      <View style={{flexDirection: 'row', marginVertical: 10}}>
                       <Rating
                         type="custom"
                         readonly
@@ -169,7 +170,7 @@ function Home({navigation}) {
                         startingValue={item.rating.rate}
                         tintColor="#fff"
                       />
-                      <Text style={{fontSize: 10}}> ({item.rating.count})</Text>
+                      <Text style={{fontSize: 10}}> ({item.rating.count})</Text></View>
                       {'\n'}
                       <Text style={{color: 'black'}}>{item.price}$</Text>
                       {'\n'}
