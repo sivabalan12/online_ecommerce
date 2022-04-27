@@ -53,6 +53,7 @@ function Home({navigation}) {
 
   const hideDialog = () => setVisible(false);
 
+  
   // const renderFooter = () => {
   //   if (isLoading) return null;
   //   return <ActivityIndicator size="large" color="#0000ff" />;
